@@ -1,0 +1,160 @@
+header{
+    width: 800px;
+}
+/*--NAVBAR--------------------------*/
+#nav_wrapper {
+    width: 100%;
+
+
+    margin: 0;
+    /*margin-bottom: 30px;*/
+    padding: 0 10px;
+    overflow: hidden;
+    background-color: #67dfd4;
+
+}
+
+#nav_wrapper a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#nav_wrapper a:hover {
+  background-color: #54b6ad;
+}
+
+.nav_left{
+   float: left;
+   display: flex;
+    align-items: center;
+}
+
+.nav_right{
+    float: right;
+    display: flex;
+    align-items: center;
+    /*border:1px solid red;*/
+}
+
+.icons{
+    width:20px;
+    height: 20px;
+    /*border:1px solid red;*/
+    margin-right: 5px
+}
+
+.nav_button{
+    display: flex;
+    flex-direction: row;
+/*    align-items: center;
+    justify-content: center;*/
+    /*border:1px solid red;*/
+}
+
+
+
+/*--NAVBAR--------------------------*/
+
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: grey;
+    margin: 0;
+    font-family: Calibri;
+}
+
+.wrapper_new{
+    /*border: 1px solid blue;*/
+    width:60%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: white;
+    /*padding: 10px;*/
+    margin-top:80px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #575555;
+}
+
+.cards_wrapper{
+     /*border: 1px solid blue;*/
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#left{
+    width:40%;
+    height:500px;
+    /*object-fit: cover;*/
+    /*background-color:pink;*/
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-image:url("https://sg.tepcdn.com/public/usr/288w3b/74729d-qanvast-5.jpeg");
+    background-size: cover
+}
+
+#right{
+    width:60%;
+    height:500px;
+    /*object-fit: cover;*/
+    /*background-color:blue;*/
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;
+    align-items: center;*/
+    /*position: relative;*/
+}
+
+#form_wrapper{
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+}
+
+
+form{
+    width:90%;
+    display: flex;
+    flex-direction: column;
+  /*  justify-content: center;
+    align-items: center;*/
+}
+h2{
+    color: #67dfd4;
+    margin-left: 30px
+
+}
+
+p{
+    margin-bottom: 5px;
+    color: grey;
+}
+
+input{
+width: 100%;
+height: 30px;
+border: 1px #d3d3d3 solid;
+padding:0 10px;
+box-sizing: border-box;
+}
+
+.submitButton{
+    background-color: #67dfd4;
+    color: white;
+    border:none;
+
+}
+

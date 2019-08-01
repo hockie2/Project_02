@@ -1,0 +1,184 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*background-color: grey;*/
+    background-image: url('bkgrd_strip.jpg');
+    margin: 0;
+    font-family: Calibri;
+}
+
+header{
+    width: 800px;
+
+}
+
+/*--NAVBAR--------------------------*/
+#nav_wrapper {
+    /*width: 100%;*/
+    margin: 0;
+    /*margin-bottom: 30px;*/
+    padding: 0 10px;
+    overflow: hidden;
+    background-color: #67dfd4;
+    /*margin-top:60px;*/
+
+}
+
+#nav_wrapper a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#nav_wrapper a:hover {
+  background-color: #54b6ad;
+}
+
+.nav_left{
+   float: left;
+   display: flex;
+    align-items: center;
+}
+
+.nav_right{
+    float: right;
+    display: flex;
+    align-items: center;
+    /*border:1px solid red;*/
+}
+
+.icons{
+    width:20px;
+    height: 20px;
+    /*border:1px solid red;*/
+    margin-right: 5px
+}
+
+.nav_button{
+    display: flex;
+    flex-direction: row;
+/*    align-items: center;
+    justify-content: center;*/
+    /*border:1px solid red;*/
+}
+
+
+
+/*--NAVBAR--------------------------*/
+.main_wrapper{
+    width:70%;
+    /*border:1px solid red;*/
+    box-shadow: 5px 5px 10px grey;
+    margin-top: 50px;
+
+}
+
+.wrapper_new{
+    /*border: 1px solid blue;*/
+    /*width:100%;*/
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    /*margin-top:40px;*/
+    margin-bottom:20px;
+}
+
+
+/*--CARDS--------------------------*/
+.cards_wrapper{
+    width:100%;
+    /*height: 500px;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    /*position: relative;*/
+    /*border: 1px solid green;*/
+    margin: 0 auto;
+    /*padding: 0;*/
+}
+
+.cardBox_wrapper{
+    width:33%;
+    /*border: 1px solid orange;*/
+    /*padding:5px;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-decoration: none;
+    /*box-sizing: border-box;*/
+    overflow: hidden;
+    position: relative;
+}
+
+.cardBox_img{
+    width:100%;
+    height: 260px;
+    /*border: 1px solid blue;*/
+    box-sizing: border-box;
+    margin: 5px;
+    /*background-size: cover;*/
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+}
+
+
+.cardBox_img > div {
+  /* make sure the width is honored */
+  flex-shrink: 0;
+  width: 300px;
+  height: 300px;
+}
+
+
+/*.cardBox_img::-webkit-scrollbar{
+    display: none;
+    }*/
+
+    .photo{
+        /*background-color: pink;*/
+        width: 100%;
+        height:100%;
+        background-size: cover;
+        /*object-fit: contain;*/
+        flex: 0 0 auto;
+        margin-right: 15px;
+
+    }
+
+
+    .location{
+        color: white;
+        text-shadow: 1px 1px 2px black;
+        bottom: 10px;
+        position: absolute;
+        margin-left: 20px;
+
+    }
+
+    .cost{
+        color: white;
+        text-shadow: 1px 1px 2px black;
+        top: 10px;
+        position: absolute;
+        padding:5px 10px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+        margin-left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+
+    }
+
+
+
+/*--CARDS--------------------------*/
