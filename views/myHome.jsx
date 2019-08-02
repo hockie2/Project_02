@@ -45,6 +45,7 @@ class MyHome extends React.Component {
       <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
 
       <link rel="stylesheet" type="text/css" href="/home.css"/>
+      <link rel="stylesheet" type="text/css" href="/myHome.css"/>
       </head>
       <body>
 
@@ -52,11 +53,15 @@ class MyHome extends React.Component {
             <Navbar/>
             <div className="wrapper_new" >
                 <div id="greeting">
-                    Hello, {this.props.cookieUserName}
+                    <div id="home">MY HOME</div>
+                    <div id="hello">Hello, {this.props.cookieUserName}</div>
                     </div>
                 <div className="cards_wrapper">
                     {cards2}
                 </div>
+
+
+
             </div>
           </div>
       <script src="/script.js"></script>

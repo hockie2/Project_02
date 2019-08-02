@@ -18,8 +18,12 @@ class MyHomePage extends React.Component {
             const bkgrd = {
                 backgroundImage:`url(${image.url})`
                 }
-            return(<div style={bkgrd} className="photo"/>)
+            return(<div style={bkgrd} className = "photo"/>)
             // return(<div><img src = {image.url} className="photo"/><div>)
+
+
+
+
 
     })
 
@@ -31,6 +35,7 @@ class MyHomePage extends React.Component {
       <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
 
       <link rel="stylesheet" type="text/css" href="/home.css"/>
+      <link rel="stylesheet" type="text/css" href="/myHomePage.css"/>
       </head>
       <body>
         <div className="main_wrapper">
@@ -43,9 +48,15 @@ class MyHomePage extends React.Component {
                     {cards2}
                 </div>
 
+
+
+                    <div className="details_wrapper">
+                        <div className="details"><h4>Renovation cost</h4><p>${numberWithCommas(this.props.cost)}</p></div>
+                        <div className="details"><h4>Location</h4> <p>{this.props.location}</p></div>
                         <button type="submit" value="Delete" id="delete" onclick="ConfirmDelete()"  >Delete</button>
-                    <form action={url} method="POST" id="form1">
-                    </form>
+                    <form action={url} method="POST" id="form1"/>
+                    </div>
+
                 </div>
           </div>
       <script src="/script.js"></script>

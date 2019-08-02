@@ -53,7 +53,7 @@ class Home extends React.Component {
 
             <div className="wrapper_new" >
                 <div id="greeting">
-                    Hello, {this.props.cookieUserName}
+                    <div id="hello">Hello, {this.props.cookieUserName}</div>
                     </div>
                 <div className="cards_wrapper">
                     {cards2}
