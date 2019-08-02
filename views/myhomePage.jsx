@@ -53,8 +53,12 @@ class MyHomePage extends React.Component {
                     <div className="details_wrapper">
                         <div className="details"><h4>Renovation cost</h4><p>${numberWithCommas(this.props.cost)}</p></div>
                         <div className="details"><h4>Location</h4> <p>{this.props.location}</p></div>
-                        <button type="submit" value="Delete" id="delete" onclick="ConfirmDelete()"  >Delete</button>
-                    <form action={url} method="POST" id="form1"/>
+
+                        <div id="buttons_wrapper">
+                            <button type="submit" value="Edit" id="edit" onclick="ConfirmDelete()">Edit</button>
+                            <button type="submit" value="Delete" id="delete" onclick="ConfirmDelete()">Delete</button>
+                            <form action={url} method="POST" id="form1"/>
+                        </div>
                     </div>
 
                 </div>

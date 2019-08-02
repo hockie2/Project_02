@@ -57,8 +57,10 @@ font-size:20px
     width: 100%;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     color: grey;
     margin-top:20px;
+    position: relative;
 }
 
 .details{
@@ -74,20 +76,35 @@ h4{
 .details_wrapper p{
     margin: 0 auto;
     /*border:1px solid red;*/
+    /*display: inline-block;*/
+
 
 }
 
+
+#buttons_wrapper{
+    height: 40px;
+/*    display: flex;
+    align-items: flex-end;*/
+    position: absolute;
+    right: 0
+}
 
 button{
     width:80px;
+    height: 100%;
     border:1px solid #67dfd4;
     background-color: white;
     color: #67dfd4;
+    margin: 0 10px;
+   /* display: flex;
+    align-items: flex-end;*/
 }
 
 #delete{
-    float:right;
-
+    /*float:right;*/
+/*    display: flex;
+    align-items: center;*/
 }
 
 
