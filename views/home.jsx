@@ -6,6 +6,8 @@ class Home extends React.Component {
   render() {
 
 
+
+
         function numberWithCommas(x) {
             return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
@@ -21,21 +23,33 @@ class Home extends React.Component {
             const bkgrd = {
                 backgroundImage:`url(${image.url})`
                 }
-            return(<div style={bkgrd} className="photo"/>)
+
+
+            return(
+
+                <div className="mySlides fade">
+                    <p className="cost">${numberWithCommas(home.cost)}</p>
+                     <p className="location">{home.location}</p>
+                        <div style={bkgrd} className="photo"/>
+
+                </div>
+
+                )
             // return(<div><img src = {image.url} className="photo"/><div>)
         })
 
     return (
-            <a href={`/myhome/${home.id}`} className = "cardBox_wrapper">
-                <div className="cardBox_img">
-                    <p className="cost">${numberWithCommas(home.cost)}</p>
-                    <p className="location">{home.location}</p>
-                    {images}
-                </div>
-            </a>
+             <div className="slideshow-container">
+
+
+          {images}
+
+
+        <a className="prev" click="plusSlides(-1)">❮</a>
+        <a className="next" click="plusSlides(1)">❯</a>
+      </div>
         )
     })
-
 
     return (
       <html>
@@ -43,6 +57,7 @@ class Home extends React.Component {
       <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
 
       <link rel="stylesheet" type="text/css" href="/home.css"/>
+      <link rel="stylesheet" type="text/css" href="/carousel.css"/>
       </head>
       <body>
 
@@ -58,9 +73,11 @@ class Home extends React.Component {
                 <div className="cards_wrapper">
                     {cards2}
                 </div>
+
           </div>
         </div>
       <script src="/script.js"></script>
+      <script src="/carousel.js"></script>
       </body>
       </html>
       );
@@ -68,3 +85,16 @@ class Home extends React.Component {
 }
 
 module.exports = Home;
+// a href={`/myhome/${home.id}`}
+
+
+
+// <div className = "slideshow-container">
+//                 <div className="cardBox_img">
+//                     <p className="cost">${numberWithCommas(home.cost)}</p>
+//                     <p className="location">{home.location}</p>
+//                     {images}
+//                     <a className="prev" onclick="plusSlides(-1)">❮</a>
+//                     <a className="next" onclick="plusSlides(1)">❯</a>
+//                 </div>
+//             </div>

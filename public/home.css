@@ -121,34 +121,33 @@ text-decoration: none;
 .cardBox_img{
 width:100%;
 height: 260px;
-/*border: 1px solid blue;*/
+border: 1px solid blue;
 box-sizing: border-box;
 margin: 5px;
-/*background-size: cover;*/
+background-size: cover;
 position: relative;
 display: flex;
 flex-direction: row;
 flex-wrap: nowrap;
-overflow-x: auto;
-overflow-y: hidden;
+/*overflow-x: auto;
+overflow-y: hidden;*/
 
 
 /* make it smooth on iOS */
--webkit-overflow-scrolling: touch;
+/*-webkit-overflow-scrolling: touch;*/
 
 /* each slide snaps into place */
-scroll-snap-points-x: repeat(300px);
+/*scroll-snap-points-x: repeat(300px);
 scroll-snap-type: mandatory;
-
+*/
 
 }
 
-.cardBox_img > div {
-/* make sure the width is honored */
+/*.cardBox_img > div {
 flex-shrink: 0;
 width: 330px;
 height: 300px;
-}
+}*/
 
 
 /*.cardBox_img::-webkit-scrollbar{
@@ -156,14 +155,11 @@ display: none;
 }*/
 
 .photo{
-    /*background-color: pink;*/
-    width: 100%;
-    height:100%;
+    width: 500px;
+    height:400px;
     background-size: cover;
-    /*object-fit: contain;*/
-    flex: 0 0 auto;
+ /*   flex: 0 0 auto;*/
     margin-right: 5px;
-
 }
 
 
