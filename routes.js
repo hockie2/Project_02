@@ -35,8 +35,12 @@ module.exports = (app, allModels) => {
     app.post('/myhome/', homeControllerCallbacks.addHomePost);
 
     app.get('/myhome/:id', homeControllerCallbacks.myHomePost);
-    app.post('/myhome/', homeControllerCallbacks.deleteHomePost);
 
-    // app.get('/tweedr/mytweeds', homeControllerCallbacks.showMyTweeds);
+    app.get('/myhome/:id/edit', homeControllerCallbacks.editHomePost);
+    app.put('/myhome/:id/', homeControllerCallbacks.updateHomePost);
+
+    app.get('/myhome/:id/delete', homeControllerCallbacks.getDeleteHomePost);
     app.delete('/myhome/:id', homeControllerCallbacks.deleteHomePost);
+
+    app.get('/myhome/contractors', homeControllerCallbacks.contractors);
 };

@@ -1,6 +1,6 @@
 var React = require("react");
 var Navbar = require('./components/navbar.jsx');
-var List = require('./components/listItem.jsx');
+// var List = require('./components/listItem.jsx');
 
 class Home extends React.Component {
   render() {
@@ -23,32 +23,25 @@ class Home extends React.Component {
             const bkgrd = {
                 backgroundImage:`url(${image.url})`
                 }
-
-
             return(
-
                 <div className="mySlides fade">
-                    <p className="cost">${numberWithCommas(home.cost)}</p>
-                     <p className="location">{home.location}</p>
-                        <div style={bkgrd} className="photo"/>
-
+                <div style={bkgrd} className="photo"/>
                 </div>
-
                 )
             // return(<div><img src = {image.url} className="photo"/><div>)
         })
 
     return (
-             <div className="slideshow-container">
-
-
-          {images}
-
-
-        <a className="prev" click="plusSlides(-1)">❮</a>
-        <a className="next" click="plusSlides(1)">❯</a>
-      </div>
+            <a href={`/myhome/${home.id}`} className = "cardBox_wrapper">
+                <div className="cardBox_img">
+                    <p className="cost">${numberWithCommas(home.cost)}</p>
+                    <p className="location">{home.location}</p>
+                    {images}
+                </div>
+            </a>
         )
+
+
     })
 
     return (
@@ -57,27 +50,28 @@ class Home extends React.Component {
       <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
 
       <link rel="stylesheet" type="text/css" href="/home.css"/>
-      <link rel="stylesheet" type="text/css" href="/carousel.css"/>
       </head>
       <body>
-
-
-
-            <div className="main_wrapper">
+        <header>
             <Navbar/>
-
+        </header>
+            <div className="main_wrapper">
             <div className="wrapper_new" >
                 <div id="greeting">
+                <img src="logo.jpg" className="logo"/>
+
                     <div id="hello">Hello, {this.props.cookieUserName}</div>
-                    </div>
+                </div>
+                <div id="gif"></div>
+                <div id="footer"/>
                 <div className="cards_wrapper">
                     {cards2}
                 </div>
 
           </div>
         </div>
+        <div id="footer"/>
       <script src="/script.js"></script>
-      <script src="/carousel.js"></script>
       </body>
       </html>
       );

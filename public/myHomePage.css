@@ -1,3 +1,15 @@
+.cards_wrapper{
+    width:100%;
+    height: 300px;
+      display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    /*align-items: center;*/
+    /*justify-content: center;*/
+    /*border:1px solid red;*/
+    overflow-y: auto;
+
+}
 .cardBox_wrapper{
     /*border:1px solid red;*/
     width:85%;
@@ -22,18 +34,25 @@
 
 }
 
-.cards_wrapper{
-      display: flex;
-    flex-wrap: nowrap;
-    /*flex-direction: row;*/
-    /*align-items: center;*/
-    /*justify-content: center;*/
-    /*border:1px solid red;*/
-    overflow-y: auto;
 
+/*---START OF SCROLLBAR------------------------------------------------------*/
+.cards_wrapper::-webkit-scrollbar{
+     height: 7px;
+}
+
+.cards_wrapper::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    /*border-radius: 10px;*/
+}
+
+.cards_wrapper::-webkit-scrollbar-thumb {
+    /*border-radius: 10px;*/
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);*/
+    background-color:#54b6ad;
 }
 
 
+/*---END OF SCROLLBAR------------------------------------------------------*/
 
 
 .cost{
@@ -45,16 +64,18 @@ font-size:20px
 }
 
 .photo{
-    height: 300px;
+    width: 724px;
+    /*height: 300px;*/
 /*    transform: translateY(150px)*/
     background-position: center;
+    /*border:1px solid red;*/
 }
 
 
 /*--start of details box--------------*/
 .details_wrapper{
     /*border:1px solid red;*/
-    width: 100%;
+    width: 70%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -83,11 +104,16 @@ h4{
 
 
 #buttons_wrapper{
+    width:180px;
     height: 40px;
 /*    display: flex;
     align-items: flex-end;*/
     position: absolute;
-    right: 0
+    right: 0;
+    /*border:1px solid red;*/
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 button{
@@ -96,7 +122,7 @@ button{
     border:1px solid #67dfd4;
     background-color: white;
     color: #67dfd4;
-    margin: 0 10px;
+    margin: 0 5px;
    /* display: flex;
     align-items: flex-end;*/
 }
@@ -107,5 +133,97 @@ button{
     align-items: center;*/
 }
 
+#loginname_wrapper{
+    visibility: hidden;
+}
 
 /*--end of details box--------------*/
+
+/*--start of comments box--------------*/
+
+.new_comment{
+    width: 70%;
+    /*border:1px solid green;*/
+    margin: 10px 0 0 0;
+    padding:10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.new_comment img{
+    width: 30px;
+    height: 30px;
+    border:1px solid #ebedf0;
+    border-radius: 50%;
+    margin-right: 10px
+
+}
+
+textarea{
+    width:93%;
+    /*height:70px;*/
+    overflow-wrap: break-word;
+    white-space:pre-wrap;
+    border:1px solid #dddddd;
+    border-radius: 10px;
+    overflow: hidden;
+    resize:none;
+    padding:5px;
+    font-family: arial;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+
+.comments_wrapper{
+    width: 70%;
+    /*height: 50px;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    margin: 10px 0 30px 0;
+    padding:10px;
+    box-sizing: border-box;
+    border:1px solid #ebedf0;
+    border-radius: 10px;
+}
+
+.comments{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    /*justify-content: center;*/
+    align-items: center;
+    /*margin:5px 0;*/
+    /*padding:5px;*/
+    /*border:1px solid green;*/
+}
+
+.comments p{
+    width:91%;
+    background-color: #ebedf0;
+    border:1px solid #dddddd;
+    border-radius: 10px;
+    padding:5px;
+    font-size:14px;
+}
+.comments img{
+    width: 30px;
+    height: 30px;
+    border:1px solid #ebedf0;
+    border-radius: 50%;
+    margin-right: 10px
+}
+
+.respond{
+    background-color: none;
+}
+
+
+
+
+
+/*--end of comments box--------------*/

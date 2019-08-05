@@ -1,4 +1,7 @@
-INSERT INTO owners(ownername,password,profile_pic) VALUES('hockie2','bhhorse2','..\public\profile_pics\owner1.jpg');
+INSERT INTO owners(ownername,password,profile_pic) VALUES('hockie3','4757718b66bb56acd7855cfb2d431a4f159f76a7e2d23a5a47a0afcddeb7bdbe','..\profile_pics\owner1.jpg');
+INSERT INTO owners(ownername,password,profile_pic) VALUES('hockie2','f7a670cd0d3bae3dc195adc8c14d10e8ab641db346e76a0a06b911a9eab02737','..\profile_pics\owner2.jpg');
+INSERT INTO owners(ownername,password,profile_pic) VALUES('hockie5','1edf1b4a1d67de795fd345914ddc414af310b1a46216af49e55fb76de9ff99dd','..\profile_pics\owner3.jpg');
+INSERT INTO owners(ownername,password,profile_pic) VALUES('hockie4','98daa0e26c2d9ccaf3f370c9ea1601fe251fd3d882bf2fb0025d5376de9e0507','..\profile_pics\owner4.jpg');
 
 
 INSERT INTO images(url,home,owner) VALUES('https://d1hy6t2xeg0mdl.cloudfront.net/image/239706/ee9812b863/standard',1,1);
@@ -27,3 +30,13 @@ INSERT INTO homes(location,cost,owner) VALUES('Canberra Link',25000,4);
 INSERT INTO homes(location,cost,owner) VALUES('Sembawang',35000,2);
 INSERT INTO homes(location,cost,owner) VALUES('Sengkang',55000,2);
 
+
+INSERT INTO comments(comment,onhome,by_owner) VALUES('Cool, Ive love the colour scheme',1,2);
+INSERT INTO comments(comment,onhome,by_owner) VALUES('It''s just so spacious. Love it!',1,3);
+
+
+INSERT INTO contractors(name,logo_url) VALUES('Defiance Concepts Pte Ltd','..\logos\logo1.jpg');
+INSERT INTO contractors(name,logo_url) VALUES('Rathy Pte Ltd','..\logos\logo2.png');
+INSERT INTO contractors(name,logo_url) VALUES('Home Design Pte Ltd','..\logos\best-interior-designer-in-delhi-home-design-95792.png');
+INSERT INTO contractors(name,logo_url) VALUES('Interior Architects Pte Ltd','..\logos\Interior-logo-design.jpg');
+INSERT INTO contractors(name,logo_url) VALUES('Angela Pte Ltd','..\logos\Interior-Design-Logo-1.jpg');

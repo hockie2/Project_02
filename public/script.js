@@ -26,17 +26,65 @@ console.log("we are in the browser");
         addhome.innerHTML = "";
     }
 
-
 //////////////////////////////////////////////////////////////////////////////////////
 
+let editbutton = document.querySelector('#edit');
+editbutton.addEventListener('click', function(event){
+
+       document.getElementById("editform").submit();
+
+})
+//////////////////////////////////////////////////////////////////////////////////////
 let deletebutton = document.querySelector('#delete');
 deletebutton.addEventListener('click', function(event){
 
 var result = confirm("Are you sure to delete?");
     if(result){
-       document.getElementById("form1").submit();
+       document.getElementById("deleteform").submit();
     }
 })
 
 ////////////////////////////////////////////////////////////////////////////////////////
+
+let ownername = document.querySelector('#ownername').innerHTML;
+let loginname = document.querySelector('#loginname').innerHTML;
+let comments_box = document.querySelector('.new_comment');
+
+
+if(!document.cookie || ownername !== loginname){
+    // console.log('HEYYYYYYYYYYYYYYYYY')
+    editbutton.remove();
+    deletebutton.remove();
+    comments_box.remove();
+
+}
+
+
+let comments_wrapper =document.querySelector('.comments_wrapper')
+
+if (comments_wrapper.innerHTML===""){
+    comments_wrapper.remove();
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+//comments fields
+var textarea = document.querySelector('textarea');
+
+textarea.addEventListener('keydown', autosize);
+
+function autosize(){
+  var el = this;
+  setTimeout(function(){
+    el.style.cssText = 'height:auto; padding:5px';
+    // for box-sizing other than "content-box" use:
+    // el.style.cssText = '-moz-box-sizing:content-box';
+    el.style.cssText = 'height:' + el.scrollHeight + 'px';
+  },0);
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////
+
 

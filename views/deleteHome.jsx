@@ -1,6 +1,6 @@
 var React = require("react");
 var Navbar = require('./components/navbar.jsx');
-var List = require('./components/listItem.jsx');
+// var List = require('./components/listItem.jsx');
 
 class DeleteHome extends React.Component {
   render() {

@@ -1,6 +1,7 @@
 var React = require("react");
 var Navbar = require('./components/navbar.jsx');
-var List = require('./components/listItem.jsx');
+// var List = require('./components/listItem.jsx');
+
 
 class MyHomePage extends React.Component {
   render() {
@@ -21,13 +22,24 @@ class MyHomePage extends React.Component {
             return(<div style={bkgrd} className = "photo"/>)
             // return(<div><img src = {image.url} className="photo"/><div>)
 
-
-
-
-
     })
 
-       var url = "/myhome/"+this.props.postId +"?_method=DELETE";
+       var edit_url = "/myhome/"+this.props.postId + "/edit";
+       var delete_url = "/myhome/"+this.props.postId +"?_method=DELETE";
+
+
+// console.log(this.props.comments)
+
+const comments = this.props.callbackComments.map(comment =>{
+        return(<div className = "comments">
+                <img src={comment.profile_pic}/>
+                <p>{comment.comment}</p>
+
+            </div>
+            )
+        })
+
+
 
     return (
       <html>
@@ -38,8 +50,10 @@ class MyHomePage extends React.Component {
       <link rel="stylesheet" type="text/css" href="/myHomePage.css"/>
       </head>
       <body>
-        <div className="main_wrapper">
+      <header>
             <Navbar/>
+            </header>
+        <div className="main_wrapper">
             <div className="wrapper_new" >
                 <div id="greeting">
 
@@ -48,21 +62,33 @@ class MyHomePage extends React.Component {
                     {cards2}
                 </div>
 
-
-
                     <div className="details_wrapper">
                         <div className="details"><h4>Renovation cost</h4><p>${numberWithCommas(this.props.cost)}</p></div>
                         <div className="details"><h4>Location</h4> <p>{this.props.location}</p></div>
+                        <div className="details"><h4>Owner Name</h4> <p id="ownername">{this.props.ownername}</p></div>
+                        <div className="details" id="loginname_wrapper"><h4>Login in user</h4> <p id="loginname">{this.props.cookieOwnerName}</p></div>
+
 
                         <div id="buttons_wrapper">
-                            <button type="submit" value="Edit" id="edit" onclick="ConfirmDelete()">Edit</button>
+                            <button type="submit" value="Edit" id="edit">Edit</button>
+                            <form action={edit_url} method="PUT" id="editform"/>
+
                             <button type="submit" value="Delete" id="delete" onclick="ConfirmDelete()">Delete</button>
-                            <form action={url} method="POST" id="form1"/>
+                            <form action={delete_url} method="POST" id="deleteform"/>
                         </div>
                     </div>
 
+                    <div className="new_comment">
+                        <img src={this.props.loginOwnerPic}/>
+                        <textarea rows="2" cols="20"></textarea>
+                    </div>
+
+                    <div className="comments_wrapper">
+                        {comments}
+                    </div>
                 </div>
           </div>
+          <div id="footer"/>
       <script src="/script.js"></script>
       </body>
       </html>

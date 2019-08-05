@@ -17,4 +17,15 @@ CREATE TABLE IF NOT EXISTS homes (
     home INTEGER,
     owner INTEGER
 );
+CREATE TABLE IF NOT EXISTS comments (
+    id SERIAL PRIMARY KEY,
+    comment TEXT,
+    onhome INTEGER,
+    by_owner INTEGER
+);
+CREATE TABLE IF NOT EXISTS contractors (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    logo_url TEXT
+);
 

@@ -1,5 +1,5 @@
 header{
-    width:50%;
+    width:60%;
     /*border:1px solid red;*/
 }
 
@@ -7,8 +7,6 @@ header{
 /*--NAVBAR--------------------------*/
 #nav_wrapper {
     width: 100%;
-
-
     margin: 0;
     /*margin-bottom: 30px;*/
     padding: 0 10px;
@@ -66,7 +64,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: grey;
+    background-image: url('bkgrd4.jpg');
+    background-size: cover;
     margin: 0;
     font-family: Calibri;
 }
