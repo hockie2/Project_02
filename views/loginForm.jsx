@@ -25,8 +25,8 @@ class Login extends React.Component {
 
                         <div id="form_wrapper">
                             <form action="/login/" method="POST">
-                                <p>Username</p><input name="ownername"></input>
-                                <p>Password</p><input name="password"></input>
+                                <p>Username</p><input type="text" name="ownername"></input>
+                                <p>Password</p><input type="password" name="password"></input>
 
                                 <p><input type="submit" name="submit" className="submitButton"/></p>
                             </form>

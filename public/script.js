@@ -14,7 +14,7 @@ console.log("we are in the browser");
         loginButton.innerHTML = `<a href="/login" ><div class="nav_button"><img src="/icons/login2.png" class="icons"/>Login</div></a>`;
 
 
-        let greeting = document.querySelector('#greeting');
+        let greeting = document.querySelector('#hello');
         if(greeting){
         greeting.innerHTML = "";
         }
@@ -55,17 +55,17 @@ if(!document.cookie || ownername !== loginname){
     // console.log('HEYYYYYYYYYYYYYYYYY')
     editbutton.remove();
     deletebutton.remove();
+}
+else if(!document.cookie){
+    // console.log('HEYYYYYYYYYYYYYYYYY')
     comments_box.remove();
-
 }
 
+// let comments_wrapper =document.querySelector('.comments_wrapper')
 
-let comments_wrapper =document.querySelector('.comments_wrapper')
-
-if (comments_wrapper.innerHTML===""){
-    comments_wrapper.remove();
-}
-
+// if (comments_wrapper.innerHTML===""){
+//     comments_wrapper.remove();
+// }
 
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -83,6 +83,19 @@ function autosize(){
     el.style.cssText = 'height:' + el.scrollHeight + 'px';
   },0);
 }
+
+document.getElementById("comment_textarea").addEventListener("keypress", submitOnEnter);
+
+function submitOnEnter(event){
+    if(event.which === 13){
+    // alert('HELLOOOOOOO')
+        // event.target.form.dispatchEvent(new Event("submit", {cancelable: true}));
+        event.target.form.submit();
+        event.preventDefault(); // Prevents the addition of a new line in the text field (not needed in a lot of cases)
+        event.target.value = "";
+    }
+}
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////

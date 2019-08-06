@@ -112,6 +112,7 @@ background-color: white;
 /*margin-top:40px;*/
 margin-bottom:20px;
 /*background-color: #ebedf0;*/
+/*position: relative;*/
 }
 
 
@@ -199,9 +200,6 @@ display: none;
 
 /*---END OF SCROLLBAR------------------------------------------------------*/
 
-
-
-
 .photo{
     width: 520px;
     height:400px;
@@ -209,7 +207,11 @@ display: none;
     background-position: 0 -80px;
  /*   flex: 0 0 auto;*/
     margin-right: 5px;
+    /*border:1px red solid;*/
+
 }
+
+
 
 
 .location{
@@ -218,7 +220,6 @@ display: none;
     bottom: 10px;
     position: absolute;
     margin-left: 20px;
-
 }
 
 .cost{
@@ -231,7 +232,6 @@ display: none;
     border-bottom-right-radius: 8px;
     margin-left: 0;
     background-color: rgba(0, 0, 0, 0.5);
-
 }
 
 
@@ -257,6 +257,43 @@ display: none;
     text-align: right;
     /*border:1px solid blue;*/
     /*float: right;*/
-    align-self: flex-end;
+    align-self: flex-start;
     font-style: italic;
+}
+
+/*-Contractor start-------------------------------------------------*/
+#contractor_card_wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    /*border:1px solid blue;*/
+}
+
+
+#contractor_card{
+    width:60%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dddddd;
+    margin: 10px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+.contractor_logo{
+    width:70px;
+    height: 70px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 20px;
+}
+
+/*-Contractor end-------------------------------------------------*/
+
+textarea:focus, input:focus{
+    outline: none;
 }

@@ -42,5 +42,8 @@ module.exports = (app, allModels) => {
     app.get('/myhome/:id/delete', homeControllerCallbacks.getDeleteHomePost);
     app.delete('/myhome/:id', homeControllerCallbacks.deleteHomePost);
 
-    app.get('/myhome/contractors', homeControllerCallbacks.contractors);
+    app.post('/myhome/:id/', homeControllerCallbacks.postComment);
+
+
+    app.get('/contractors', homeControllerCallbacks.contractors);
 };

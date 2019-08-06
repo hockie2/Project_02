@@ -14,7 +14,7 @@ class MyHomePage extends React.Component {
         // console.log(this.props.homes)
         // console.log(this.props.images)
 
-       const cards2 = this.props.images.map(image =>{
+       const cards2 = this.props.home.map(image =>{
 
             const bkgrd = {
                 backgroundImage:`url(${image.url})`
@@ -26,10 +26,10 @@ class MyHomePage extends React.Component {
 
        var edit_url = "/myhome/"+this.props.postId + "/edit";
        var delete_url = "/myhome/"+this.props.postId +"?_method=DELETE";
+       var post_comment = "/myhome/"+this.props.postId +"?_method=POST";
 
 
-// console.log(this.props.comments)
-
+//Map out comments from this post
 const comments = this.props.callbackComments.map(comment =>{
         return(<div className = "comments">
                 <img src={comment.profile_pic}/>
@@ -39,6 +39,10 @@ const comments = this.props.callbackComments.map(comment =>{
             )
         })
 
+//Contractor LogoInfo
+const bkgrd = {
+            backgroundImage:`url(${this.props.contractor.logo_url})`
+            }
 
 
     return (
@@ -55,17 +59,15 @@ const comments = this.props.callbackComments.map(comment =>{
             </header>
         <div className="main_wrapper">
             <div className="wrapper_new" >
-                <div id="greeting">
 
-                    </div>
                 <div className="cards_wrapper">
                     {cards2}
                 </div>
 
                     <div className="details_wrapper">
-                        <div className="details"><h4>Renovation cost</h4><p>${numberWithCommas(this.props.cost)}</p></div>
-                        <div className="details"><h4>Location</h4> <p>{this.props.location}</p></div>
-                        <div className="details"><h4>Owner Name</h4> <p id="ownername">{this.props.ownername}</p></div>
+                        <div className="details"><h4>Renovation cost</h4><p>${numberWithCommas(this.props.home[0].cost)}</p></div>
+                        <div className="details"><h4>Location</h4> <p>{this.props.home[0].location}</p></div>
+                        <div className="details"><h4>Owner Name</h4> <p id="ownername">{this.props.home[0].ownername}</p></div>
                         <div className="details" id="loginname_wrapper"><h4>Login in user</h4> <p id="loginname">{this.props.cookieOwnerName}</p></div>
 
 
@@ -78,9 +80,17 @@ const comments = this.props.callbackComments.map(comment =>{
                         </div>
                     </div>
 
+                    <div id="contractor_card">
+                        <div style={bkgrd} className="contractor_logo"/>
+                        <div className="contractor_name">{this.props.contractor.name}</div>
+                    </div>
+
+
                     <div className="new_comment">
                         <img src={this.props.loginOwnerPic}/>
-                        <textarea rows="2" cols="20"></textarea>
+                        <form action={post_comment} method="POST" id="new_comment">
+                            <textarea rows="2" cols="20" name="comment_textarea" id="comment_textarea"></textarea>
+                        </form>
                     </div>
 
                     <div className="comments_wrapper">

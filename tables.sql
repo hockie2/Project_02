@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS homes (
     id SERIAL PRIMARY KEY,
     location TEXT,
     cost INTEGER,
-    home INTEGER,
+    contractor INTEGER,
     owner INTEGER
 );
 CREATE TABLE IF NOT EXISTS comments (

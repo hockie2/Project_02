@@ -59,11 +59,11 @@ class Home extends React.Component {
             <div className="wrapper_new" >
                 <div id="greeting">
                 <img src="logo.jpg" className="logo"/>
-
                     <div id="hello">Hello, {this.props.cookieUserName}</div>
                 </div>
                 <div id="gif"></div>
                 <div id="footer"/>
+
                 <div className="cards_wrapper">
                     {cards2}
                 </div>

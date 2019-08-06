@@ -158,7 +158,7 @@ let addHomePost = (ownername,location,cost,url, callback) => {
 let myHomePost = (postId, callback) => {
 
     const id_query = `
-                    SELECT homes.id,homes.location,homes.cost,owners.ownername,owners.ownername,images.url
+                    SELECT homes.id,homes.location,homes.cost,homes.contractor,owners.ownername,owners.ownername,images.url
                     FROM homes INNER JOIN owners ON owners.id = homes.owner
                     INNER JOIN images ON images.home = homes.id
                     WHERE homes.id = '${postId}'`;
@@ -195,6 +195,30 @@ let myHomeComments = (postId,callback) => {
                 callback(error, queryResult.rows);
             }
     })
+}
+/////////////////////////////////////////////////////////////////////////////////////
+let postComment = (postId,ownername,comment, callback) => {
+
+    const ownername_query = `SELECT id FROM owners WHERE ownername='${ownername}'`;
+
+    dbPoolInstance.query(ownername_query,(error, queryResult_id) => {
+
+
+    const query = `INSERT INTO comments(comment,onhome,by_owner) VALUES($1,$2,$3)`;
+    let values = [comment,postId,queryResult_id.rows[0].id];
+    dbPoolInstance.query(query,values,(error, queryResult) => {
+
+        // console.log(queryResult.rows)
+        if( error ){
+            // invoke callback function with results after query has executed
+            console.log('ERROR!!!')
+            callback(error, null);
+              }
+        else{
+            callback(error, queryResult.rows);
+        }
+    })
+})
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -332,19 +356,38 @@ let deleteHomePost = (postId, callback) => {
     })
 }
 /////////////////////////////////////////////////////////////////////////////////////
-let contractors = (postId, callback) => {
+let contractorsAll = (postId, callback) => {
 
     const query = `SELECT * FROM contractors`;
 
     dbPoolInstance.query(query,(error, queryResult) => {
 
+        // console.log(queryResult.rows)
         if( error ){
-                // invoke callback function with results after query has executed
-                console.log('ERROR!!!')
-                callback(error, null);
+            // invoke callback function with results after query has executed
+            console.log('ERROR!!!')
+            callback(error, null);
               }
         else{
-                callback(error, queryResult.rows);
+            callback(error, queryResult.rows);
+        }
+    })
+}
+/////////////////////////////////////////////////////////////////////////////////////
+let contractorInfo = (postId, callback) => {
+
+    const query = `SELECT * FROM contractors WHERE id='${postId}'`;
+
+    dbPoolInstance.query(query,(error, queryResult) => {
+
+        // console.log(queryResult.rows)
+        if( error ){
+            // invoke callback function with results after query has executed
+            console.log('ERROR!!!')
+            callback(error, null);
+              }
+        else{
+            callback(error, queryResult.rows);
         }
     })
 }
@@ -374,7 +417,9 @@ let contractors = (postId, callback) => {
     deleteHomePost,
 
     myHomeComments,
+    postComment,
 
-    contractors,
+    contractorsAll,
+    contractorInfo,
   };
 };

@@ -42,8 +42,9 @@ class MyHome extends React.Component {
     return (
       <html>
       <head>
-      <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
+      <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
       <link rel="stylesheet" type="text/css" href="/home.css"/>
+      <link rel="stylesheet" type="text/css" href="/myHome.css"/>
       </head>
       <body>
 
@@ -54,9 +55,11 @@ class MyHome extends React.Component {
                 <img src="logo.jpg" className="logo"/>
                     <div id="hello">Hello, {this.props.cookieUserName}</div>
                 </div>
+                <h3>MY HOME</h3>
                 <div className="cards_wrapper">
                     {cards2}
                 </div>
+
 
 
 

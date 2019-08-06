@@ -13,7 +13,7 @@ class Navbar extends React.Component {
                 <a class="active" href="/"><div className="nav_button"><img src="/icons/home.png" className="icons"/>Home</div></a>
                 <div id="dashboard"><a href="/myhome" id="dashboard">My Dashboard</a></div>
                 <div id="addhome"><a href="/myhome/addhome">Add your Home</a></div>
-                <a href="/myhome/contractors">Contractors</a>
+                <a href="/contractors">Contractors</a>
             </div>
 
             <div className="nav_right">

@@ -116,26 +116,21 @@ let myHomePost = (request, response) => {
 
     db.dreamhome.myHomePost(postId, (error, callback) => {
         if (error) {
-                console.error("Error deleting post: ", error.message);
-                response.send("Query error for deleting");
-
+                console.error("Error getting post: ", error.message);
+                response.send("Query error for getting homepost");
             }
             else {
-                //response.send("Tweed - Successful")
-                // console.log(callback)
-
                 db.dreamhome.myHomeComments(postId,(error, callbackComments) => {
+
+                    db.dreamhome.contractorInfo(postId,(error, callbackContractor) => {
 
                     if (ownername){
                     db.dreamhome.ownerProfilePic(ownername,(error, callbackOwnerPic) => {
-
                         let data = {
-                            location:callback[0].location,
-                            cost:callback[0].cost,
-                            ownername:callback[0].ownername,
+                            home:callback,
+                            contractor:callbackContractor[0],
                             callbackComments:callbackComments,
                             loginOwnerPic:callbackOwnerPic[0].profile_pic,
-                            images:callback,
                             postId:postId,
                             cookieUserLogin: request.cookies["loggedin"],
                             cookieOwnerName: request.cookies.ownername
@@ -145,9 +140,8 @@ let myHomePost = (request, response) => {
                 }
                     else{
                         let data = {
-                            location:callback[0].location,
-                            cost:callback[0].cost,
-                            ownername:callback[0].ownername,
+                            home:callback,
+                            contractor:callbackContractor[0],
                             callbackComments:callbackComments,
                             // loginOwnerPic:callbackOwnerPic[0].profile_pic,
                             images:callback,
@@ -157,6 +151,8 @@ let myHomePost = (request, response) => {
                         }
                         response.render("myhomePage",data)
                     }
+
+                })
 
             })
         }
@@ -173,8 +169,8 @@ let editHomePost = (request, response) => {
 
     db.dreamhome.editHomePost(postId, (error, callback) => {
         if (error) {
-                console.error("Error deleting post");
-                response.send("Query error for deleting");
+                console.error("Error editing post");
+                response.send("Query error for editing");
 
             } else {
                 //response.send("Tweed - Successful")
@@ -207,7 +203,7 @@ let updateHomePost = (request, response) => {
 
     db.dreamhome.updateHomePost(id,ownername,location,cost,url, (error, callbackHome) => {
         if (error) {
-                console.error("Error posting tweed: ", error.message);
+                console.error("Error updating post");
                 response.send("Query error for updating");
             }
         else {
@@ -276,19 +272,42 @@ let contractors = (request, response) => {
     // const ownername = request.cookies.ownername;
     // const postId = request.params.id;
 
-    db.dreamhome.contractors(postId, (error, callback) => {
+    db.dreamhome.contractorsAll(request, (error, callback) => {
         if (error) {
-                console.error("Error deleting post");
-                response.send("Query error for deleting");
+            console.error("Error deleting post");
+            response.send("Query error getting contractors");
         }
         else {
             //response.send("Tweed - Successful")
             console.log('HELLOPOOOOOOOOOOOOOOOOOOOO')
-            response.render("contractors")
+            let data={
+                contractors:callback
+            }
+            response.render("contractors",data)
         }
     })
 }
+//////////////////////////////////////////////////////////////////////////////
+let postComment = (request, response) => {
 
+    const ownername = request.cookies.ownername;
+    const postId = request.params.id;
+    const comment = request.body.comment_textarea;
+
+    // console.log(comment);
+
+    db.dreamhome.postComment(postId,ownername,comment, (error, callback) => {
+        if (error) {
+            console.error("Error deleting post");
+            response.send("Query error getting contractors");
+        }
+        else {
+            //response.send("Tweed - Successful")
+            response.redirect("/myhome/"+`${postId}`)
+            // response.render("myHomePage")
+        }
+    })
+}
 
 
 
@@ -312,6 +331,8 @@ let contractors = (request, response) => {
 
     getDeleteHomePost:getDeleteHomePost,
     deleteHomePost:deleteHomePost,
+
+    postComment:postComment,
 
     contractors:contractors,
 

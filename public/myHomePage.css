@@ -91,6 +91,7 @@ h4{
     color: #67dfd4;
     /*border:1px solid red;*/
     margin: 0 auto;
+    font-family: 'Ubuntu', sans-serif;
 
 }
 
@@ -98,7 +99,6 @@ h4{
     margin: 0 auto;
     /*border:1px solid red;*/
     /*display: inline-block;*/
-
 
 }
 
@@ -157,8 +157,12 @@ button{
     border:1px solid #ebedf0;
     border-radius: 50%;
     margin-right: 10px
-
 }
+
+#new_comment{
+    width:100%;
+}
+
 
 textarea{
     width:93%;
@@ -183,7 +187,7 @@ textarea{
     flex-direction: column;
     align-items: center;
     background-color: white;
-    margin: 10px 0 30px 0;
+    /*margin: 10px 0 30px 0;*/
     padding:10px;
     box-sizing: border-box;
     border:1px solid #ebedf0;
@@ -192,12 +196,12 @@ textarea{
 
 .comments{
     width: 100%;
-    height: 50px;
+    /*height: auto;*/
     display: flex;
     flex-direction: row;
     /*justify-content: center;*/
     align-items: center;
-    /*margin:5px 0;*/
+    margin:0;
     /*padding:5px;*/
     /*border:1px solid green;*/
 }
@@ -206,9 +210,11 @@ textarea{
     width:91%;
     background-color: #ebedf0;
     border:1px solid #dddddd;
+    /*border:1px solid black;*/
     border-radius: 10px;
     padding:5px;
     font-size:14px;
+    /*margin:10px auto;*/
 }
 .comments img{
     width: 30px;
@@ -222,8 +228,13 @@ textarea{
     background-color: none;
 }
 
-
-
-
-
 /*--end of comments box--------------*/
+
+/*--start of contractor box--------------*/
+#contractor_card{
+    border:none;
+    justify-content: flex-start;
+    margin-left: -100px
+}
+
+/*--start of contractor box--------------*/
