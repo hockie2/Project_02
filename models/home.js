@@ -54,14 +54,30 @@ let showHome = (ownername, callback) => {
 }
 
 // SELECT cost FROM costs INNER JOIN owners ON costs.owner = owners.id WHERE owners.ownername = '${ownername}'
-
+/////////////////////////////////////////////////////////////////////////////////////
+let showMyHome = (ownername, callback) => {
+    const query = `
+                    SELECT homes.id,location,cost
+                    FROM homes
+                    INNER JOIN owners
+                    ON homes.owner = owners.id
+                    WHERE owners.ownername = '${ownername}'`;
+        dbPoolInstance.query(query, (error, queryResult) => {
+            // console.log(queryResult.rows)
+            if( queryResult.rows.length > 0 ){
+              callback(null, queryResult.rows);
+            }else{
+              callback(null, null);
+            }
+        })
+}
 /////////////////////////////////////////////////////////////////////////////////////
 let showMyImages = (ownername, callback) => {
     const query = `
-                    SELECT url
+                    SELECT url, home
                     FROM images
                     INNER JOIN owners
-                    ON images.home = owners.id
+                    ON images.owner = owners.id
                     WHERE owners.ownername = '${ownername}'`;
 
     dbPoolInstance.query(query, (error, queryResult) => {
@@ -80,19 +96,7 @@ let showMyImages = (ownername, callback) => {
       }
   })
 }
-/////////////////////////////////////////////////////////////////////////////////////
-let showMyHome = (ownername, callback) => {
-    const query = `
-                    SELECT homes.id,location,cost
-                    FROM homes
-                    INNER JOIN owners
-                    ON homes.owner = owners.id
-                    WHERE owners.ownername = '${ownername}'`;
-        dbPoolInstance.query(query, (error, queryResult) => {
-            // console.log(queryResult.rows)
-            callback(error, queryResult.rows);
-        })
-}
+
 /////////////////////////////////////////////////////////////////////////////////////
 let addHomeForm = (ownername, callback) => {
     const query = `SELECT id FROM owners WHERE owners.ownername = '${ownername}'`;
@@ -276,19 +280,55 @@ let updateHomePost = (postId,ownername,location,cost,url, callback) => {
               }
         else{
             // update entry into images table
-            // for (var i = 0; i < url.length; i++) {
-               const query = `UPDATE images SET url = $1 WHERE home = $2 RETURNING id`;
-                let values = [url,postId];
+            // console.log(url)
+            // get the rows that is home = 2
+            // do a loop for results.rows then check if results.rows[i].url === url[i], dont update
+            // if not equal then update
+            const getAllImage = `SELECT * FROM images WHERE home = '${postId}'`;
 
-                    dbPoolInstance.query(query, values,(error, queryResult2) => {
-                        // console.log("In UPDATE")
+            dbPoolInstance.query(getAllImage, (error, imageResult) => {
+
+                for (let i=0; i<imageResult.rows.length; i++) {
+                    // if (imageResult.rows[i].url === url[i]) {
+                    //     console.log("yes")
+                    // }
+                    // else {
+                        // console.log("no");
+                        // console.log(url[0])
+                        const query = `UPDATE images SET url = $1 WHERE home = $2 RETURNING id `;
+                        let values = [url[i],postId];
+
+                        // console.log(url[i])
+
+                         dbPoolInstance.query(query, values,(error, queryResult2) => {
+                        console.log(queryResult2.rows)
+
                         if( error ){
                             console.log('ERROR!!!')
                         // invoke callback function with results after query has executed
                         callback(error, null);
-                      }
+                        }
                         callback(error, queryResult2.rows);
-                    })
+                        })
+
+                    // }
+                }
+
+            })
+            // for (var i = 0; i < url.length; i++) {
+            //     // console.log(url[i])
+            //    const query = `UPDATE images SET url = $1 WHERE home = $2 RETURNING id`;
+            //     let values = [url[i],postId];
+
+            //         dbPoolInstance.query(query, values,(error, queryResult2) => {
+            //             // console.log("In UPDATE")
+            //             if( error ){
+            //                 console.log('ERROR!!!')
+            //             // invoke callback function with results after query has executed
+            //             callback(error, null);
+            //           }
+            //             callback(error, queryResult2.rows);
+            //         })
             // }
         }
     })
@@ -376,7 +416,11 @@ let contractorsAll = (postId, callback) => {
 /////////////////////////////////////////////////////////////////////////////////////
 let contractorInfo = (postId, callback) => {
 
-    const query = `SELECT * FROM contractors WHERE id='${postId}'`;
+    const query = `
+                    SELECT contractors.name, contractors.logo_url FROM contractors
+                    INNER JOIN homes
+                    ON homes.contractor = contractors.id
+                    WHERE homes.id='${postId}'`;
 
     dbPoolInstance.query(query,(error, queryResult) => {
 
@@ -403,8 +447,9 @@ let contractorInfo = (postId, callback) => {
     ownerProfilePic,
     showHome,
     showImages,
-    showMyHome,
+
     showMyImages,
+    showMyHome,
 
     addHomeForm,
     addHomePost,
@@ -420,6 +465,6 @@ let contractorInfo = (postId, callback) => {
     postComment,
 
     contractorsAll,
-    contractorInfo,
+    contractorInfo
   };
 };

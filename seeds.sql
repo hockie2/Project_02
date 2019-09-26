@@ -13,14 +13,14 @@ INSERT INTO images(url,home,owner) VALUES('https://d1hy6t2xeg0mdl.cloudfront.net
 INSERT INTO images(url,home,owner) VALUES('https://d1hy6t2xeg0mdl.cloudfront.net/image/308747/e411d6a376/standard',3,3);
 INSERT INTO images(url,home,owner) VALUES('https://d1hy6t2xeg0mdl.cloudfront.net/image/153281/f13a35f1b7/standard',3,3);
 INSERT INTO images(url,home,owner) VALUES('https://d1hy6t2xeg0mdl.cloudfront.net/image/210991/a5a6b9bb1f/standard',4,4);
-INSERT INTO images(url,home,owner) VALUES('https://sg1-cdn.pgimgs.com/cms/news/2015/02/Third-Avenue-Derbyshire-1-Image-source-Qanvast.original.jpg',4,4);
+INSERT INTO images(url,home,owner) VALUES('https://www.homeanddecor.com.sg/sites/default/files/100979-55havelock-artistroom-selects-5.jpg',4,4);
 INSERT INTO images(url,home,owner) VALUES('https://d1hy6t2xeg0mdl.cloudfront.net/image/296276/df3a02a9cc/standardfitcenter',4,4);
-INSERT INTO images(url,home,owner) VALUES('https://d1hy6t2xeg0mdl.cloudfront.net/image/210991/a5a6b9bb1f/standard',5,2);
-INSERT INTO images(url,home,owner) VALUES('https://sg1-cdn.pgimgs.com/cms/news/2015/02/Third-Avenue-Derbyshire-1-Image-source-Qanvast.original.jpg',5,2);
-INSERT INTO images(url,home,owner) VALUES('https://d1hy6t2xeg0mdl.cloudfront.net/image/296276/df3a02a9cc/standardfitcenter',5,2);
-INSERT INTO images(url,home,owner) VALUES('https://d1hy6t2xeg0mdl.cloudfront.net/image/210991/a5a6b9bb1f/standard',6,2);
+INSERT INTO images(url,home,owner) VALUES('https://www.lookboxliving.com.sg/wp-content/uploads/2017/08/ed_Blk676A-Punggol-Drive-4rm-HDB_Living.jpg',5,2);
+INSERT INTO images(url,home,owner) VALUES('https://s3-ap-southeast-1.amazonaws.com/sphm-sww-site-production/2017/03/HDB-Flats-9-Joo-Seng-Mr-Shopper-Study-Room-1-2.jpg',5,2);
+INSERT INTO images(url,home,owner) VALUES('https://d1hy6t2xeg0mdl.cloudfront.net/image/101884/ab189fcfa8/1024-width',5,2);
+INSERT INTO images(url,home,owner) VALUES('https://www.asiaone.com/sites/default/files/original_images/Jan2019/20190103_larchitects-hdb.png',6,2);
 INSERT INTO images(url,home,owner) VALUES('https://sg1-cdn.pgimgs.com/cms/news/2015/02/Third-Avenue-Derbyshire-1-Image-source-Qanvast.original.jpg',6,2);
-INSERT INTO images(url,home,owner) VALUES('https://d1hy6t2xeg0mdl.cloudfront.net/image/296276/df3a02a9cc/standardfitcenter',6,2);
+INSERT INTO images(url,home,owner) VALUES('https://www.theonlinecitizen.com/wp-content/uploads/2016/08/Design-Chapterz-Living-Room-scene.sg_-e1471927213354.jpg',6,2);
 
 
 INSERT INTO homes(location,cost,contractor,owner) VALUES('Bukit Merah View',50000,2,1);

@@ -1,20 +1,23 @@
 .cards_wrapper{
     /*border:1px solid red;*/
     margin: 0 auto;
-    /*padding:0;*/
-    width:100%;
-    /*box-sizing: border-box;*/
+    padding:0 20px;
+    width:90%;
+    box-sizing: border-box;
 }
 
 h3{
     margin:10px;
-    /*border:1px solid red;*/
-    margin-left: -900px;
     color:grey;
     font-family: 'Montserrat', sans-serif;
+    display: flex;
+    align-self: flex-start;
+    padding-left: 67px
 }
 
 .cardBox_wrapper{
     width:100%;
     padding:0;
+    margin-bottom: 10px;
+    box-sizing: border-box;
 }

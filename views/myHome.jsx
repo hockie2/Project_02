@@ -13,31 +13,26 @@ class MyHome extends React.Component {
         // console.log(this.props.homes)
         // console.log(this.props.images)
 
-       const cards2 = this.props.homes.map(home =>{
+        const cards2 = this.props.homes.map(home =>{
 
-        // let imageArr = this.props.images.filter(image=>
-        //     image.home===home.id)
+            let imageArr = this.props.images.filter(image=>
+                image.home===home.id)
 
-        console.log(home)
+            let images = imageArr.map(image=>{
+                const bkgrd = { backgroundImage:`url(${image.url})` }
+                return(<div style={bkgrd} className="photo" key='id'/>)
+            })
 
-        let images = this.props.images.map(image=>{
-            const bkgrd = {
-                backgroundImage:`url(${image.url})`
-                }
-            return(<div style={bkgrd} className="photo"/>)
-            // return(<div><img src = {image.url} className="photo"/><div>)
+            return (
+                <a href={`/myhome/${home.id}`} className = "cardBox_wrapper">
+                    <div className="cardBox_img">
+                        <p className="cost">${numberWithCommas(home.cost)}</p>
+                        <p className="location">{home.location}</p>
+                        {images}
+                    </div>
+                </a>
+            )
         })
-
-    return (
-            <a href={`/myhome/${home.id}`} className = "cardBox_wrapper">
-                <div className="cardBox_img">
-                    <p className="cost">${numberWithCommas(home.cost)}</p>
-                    <p className="location">{home.location}</p>
-                    {images}
-                </div>
-            </a>
-        )
-    })
 
     return (
       <html>

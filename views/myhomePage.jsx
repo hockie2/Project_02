@@ -29,20 +29,20 @@ class MyHomePage extends React.Component {
        var post_comment = "/myhome/"+this.props.postId +"?_method=POST";
 
 
-//Map out comments from this post
-const comments = this.props.callbackComments.map(comment =>{
-        return(<div className = "comments">
-                <img src={comment.profile_pic}/>
-                <p>{comment.comment}</p>
+    //Map out comments from this post
+    const comments = this.props.callbackComments.map(comment =>{
+            return(<div className = "comments">
+                    <img src={comment.profile_pic}/>
+                    <p>{comment.comment}</p>
 
-            </div>
-            )
-        })
+                </div>
+                )
+            })
 
-//Contractor LogoInfo
-const bkgrd = {
-            backgroundImage:`url(${this.props.contractor.logo_url})`
-            }
+    //Contractor LogoInfo
+    const bkgrd = {
+                backgroundImage:`url(${this.props.contractor.logo_url})`
+                }
 
 
     return (
@@ -75,7 +75,7 @@ const bkgrd = {
                             <button type="submit" value="Edit" id="edit">Edit</button>
                             <form action={edit_url} method="PUT" id="editform"/>
 
-                            <button type="submit" value="Delete" id="delete" onclick="ConfirmDelete()">Delete</button>
+                            <button type="submit" value="Delete" id="delete" onClick="ConfirmDelete()">Delete</button>
                             <form action={delete_url} method="POST" id="deleteform"/>
                         </div>
                     </div>

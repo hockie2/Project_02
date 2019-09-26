@@ -11,52 +11,48 @@ module.exports = (db) => {
 
 
 ////////////////////////////////////////////////////////////////////////////////
-  let home = (request, response) => {
-
-    db.dreamhome.showImages(request, (error, callbackImages) => {
-
-        const ownername = request.cookies.ownername;
-
-            db.dreamhome.showHome(ownername, (error, callbackHome) => {
-
-                    // console.log(callbackImages)
-
-                    var data = {
-                        images:callbackImages,
-                        homes: callbackHome,
-                        cookieUserLogin: request.cookies["loggedin"],
-                        cookieUserName: request.cookies.ownername
-                    }
-
-                    response.render('home',data)
-
-            })
-    })
-  };
-
-//////////////////////////////////////////////////////////////////////////////
-  let showMyHome = (request, response) => {
+let home = (request, response) => {
 
     const ownername = request.cookies.ownername;
 
-    db.dreamhome.showMyImages(ownername, (error, callbackImages) => {
+    db.dreamhome.showHome(ownername, (error, callbackHome) => {
 
-            db.dreamhome.showMyHome(ownername, (error, callbackHome) => {
+            db.dreamhome.showImages(request, (error, callbackImages) => {
+                // console.log(callbackImages)
+                var data = {
+                    images:callbackImages,
+                    homes: callbackHome,
+                    cookieUserLogin: request.cookies["loggedin"],
+                    cookieUserName: request.cookies.ownername
+                }
 
-                    // console.log(callbackHome.rows)
+                response.render('home',data)
 
-                    var data = {
-                        images:callbackImages,
-                        homes: callbackHome,
-                        cookieUserLogin: request.cookies["loggedin"],
-                        cookieUserName: request.cookies.ownername
-                    }
-
-                    response.render('myHome',data)
-
-            })
+        })
     })
-  };
+};
+
+//////////////////////////////////////////////////////////////////////////////
+let showMyHome = (request, response) => {
+
+    const ownername = request.cookies.ownername;
+
+    db.dreamhome.showMyHome(ownername, (error, callbackHome) => {
+
+            // console.log(callbackHome)
+        db.dreamhome.showMyImages(ownername, (error, callbackImages) => {
+
+                // console.log(callbackImages[0])
+                var data = {
+                    images:callbackImages,
+                    homes: callbackHome,
+                    cookieUserLogin: request.cookies["loggedin"],
+                    cookieUserName: request.cookies.ownername
+                }
+                response.render('myHome',data)
+        })
+    })
+};
 //////////////////////////////////////////////////////////////////////////////
 let addHomeForm = (request, response) => {
 
@@ -113,6 +109,7 @@ let myHomePost = (request, response) => {
     // request.body.ownername = ownername;
 
     const postId = request.params.id;
+
 
     db.dreamhome.myHomePost(postId, (error, callback) => {
         if (error) {
@@ -279,7 +276,7 @@ let contractors = (request, response) => {
         }
         else {
             //response.send("Tweed - Successful")
-            console.log('HELLOPOOOOOOOOOOOOOOOOOOOO')
+            // console.log('HELLOPOOOOOOOOOOOOOOOOOOOO')
             let data={
                 contractors:callback
             }
