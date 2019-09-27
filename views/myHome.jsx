@@ -37,9 +37,10 @@ class MyHome extends React.Component {
     return (
       <html>
       <head>
-      <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
-      <link rel="stylesheet" type="text/css" href="/home.css"/>
-      <link rel="stylesheet" type="text/css" href="/myHome.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="/home.css"/>
+        <link rel="stylesheet" type="text/css" href="/myHome.css"/>
       </head>
       <body>
 

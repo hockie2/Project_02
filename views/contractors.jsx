@@ -23,8 +23,9 @@ class Contractors extends React.Component {
     return (
       <html>
       <head>
-      <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
-      <link rel="stylesheet" type="text/css" href="/home.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" type="text/css" href="/home.css"/>
       </head>
           <body>
             <div className="main_wrapper">

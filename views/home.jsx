@@ -24,8 +24,8 @@ class Home extends React.Component {
                 backgroundImage:`url(${image.url})`
                 }
             return(
-                <div className="mySlides fade">
-                <div style={bkgrd} className="photo"/>
+                <div>
+                    <div style={bkgrd} className="photo"/>
                 </div>
                 )
             // return(<div><img src = {image.url} className="photo"/><div>)
@@ -47,9 +47,9 @@ class Home extends React.Component {
     return (
       <html>
       <head>
-      <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
-
-      <link rel="stylesheet" type="text/css" href="/home.css"/>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+          <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet"/>
+          <link rel="stylesheet" type="text/css" href="/home.css"/>
       </head>
       <body>
         <header>
